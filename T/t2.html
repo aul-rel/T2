@@ -9,6 +9,7 @@
     <script>
         function localizar(){
         var cep = document.getElementById("cep").value;
+        var logradouro = document.getElementById("logradouro");
         var my_url = `https://viacep.com.br/ws/${cep}/json/`;
 
         $.ajax({
