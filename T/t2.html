@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        function localizar(){
+        var cep = document.getElementById("cep").value;
+        var my_url = `https://viacep.com.br/ws/${cep}/json/`;
+
+        $.ajax({
+        url: my_url,
+        data: {},
+        type: "get",
+        success: function(resp){
+            logradouro.value = resp.logradouro
+            alert(resp.logradouro)
+        alert(resp);
+        }
+        });
+        }
+    </script>
+</head>
+<body>
+    <form method="get">
+        <label for="cep">CEP:</label>
+        <input type="text" id="cep" name="cep" value="" required>
+        
+        <button type="submit" onclick="localizar()">Buscar</button><br>
+        
+        <label for="logradouro">Logradouro:</label>
+        <input type="text" id="logradouro" name="logradouro" value=""><br>
+
+        <label for="bairro">Bairro:</label>
+        <input type="text" id="bairro" name="bairro" value=""><br>
+
+        <label for="cidade">Cidade:</label>
+        <input type="text" id="cidade" name="cidade" value=""><br>
+
+        <label for="estado">Estado:</label>
+        <input type="text" id="estado" name="estado" value=""><br>
+    </form>
+    
+</body>
+</html>
